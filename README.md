@@ -36,13 +36,17 @@ Aucun serveur ni dépendance (HTML / CSS / JS pur).
 ```
 ├── index.html          # guide shell
 ├── tokens.html         # prix API / tokens
+├── usage.html          # suivi usage Grok (% restant)
 ├── Token               # source des tarifs (17/07/2026)
 ├── css/style.css
 ├── css/tokens.css
+├── css/usage.css
 ├── js/data.js          # commandes Linux ↔ Windows
 ├── js/app.js
 ├── js/tokens-data.js   # prix modèles
-└── js/tokens-app.js    # tableau + estimateur
+├── js/tokens-app.js    # tableau + estimateur
+├── js/usage-data.js    # presets de quotas
+└── js/usage-app.js     # compteurs + localStorage
 ```
 
 ## Les 2 terminaux
