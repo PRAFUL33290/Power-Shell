@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/icons.css" />
   <link rel="stylesheet" href="css/tokens.css" />
 </head>
 <body class="has-sidebar">
@@ -19,7 +20,7 @@
   <aside class="site-sidebar" id="site-sidebar" aria-label="Navigation">
     <div class="sidebar-top">
       <a href="index.html" class="logo" aria-label="Power.guide — accueil">
-        <span class="logo-mark">Ψ</span>
+        <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
         <span class="logo-text">Power<span class="accent">.guide</span></span>
       </a>
     </div>
@@ -61,7 +62,7 @@
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="logo logo-mobile">
-      <span class="logo-mark">Ψ</span>
+      <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
       <span class="logo-text">Power<span class="accent">.guide</span></span>
     </a>
   </header>
@@ -100,22 +101,22 @@
 
     <section class="shell-cards container" aria-label="Fournisseurs">
       <article class="shell-card provider-card xai">
-        <div class="shell-icon">⚡</div>
+        <div class="shell-icon" data-icon="bolt" data-icon-size="22"></div>
         <h2>xAI · Grok</h2>
         <p>Grok 4.5 (2 / 6) · Grok 4.3 (1,25 / 2,50) — fort sur code & agents.</p>
       </article>
       <article class="shell-card provider-card openai">
-        <div class="shell-icon">◎</div>
+        <div class="shell-icon" data-icon="openai" data-icon-size="22"></div>
         <h2>OpenAI</h2>
         <p>GPT-4o-mini très éco · GPT-4.1 frontier à 2 / 8 USD par 1M.</p>
       </article>
       <article class="shell-card provider-card anthropic">
-        <div class="shell-icon">◆</div>
+        <div class="shell-icon" data-icon="claude" data-icon-size="22"></div>
         <h2>Anthropic</h2>
         <p>Sonnet 4.6 pro · Haiku 4.5 léger pour gros volumes.</p>
       </article>
       <article class="shell-card provider-card vibe">
-        <div class="shell-icon">◇</div>
+        <div class="shell-icon" data-icon="vibe" data-icon-size="22"></div>
         <h2>Vibe AI</h2>
         <p>Pas de tarif token public — Pro 25 $/mois · Max 99 $/mois.</p>
       </article>
@@ -240,6 +241,7 @@
   <div id="site-footer"></div>
   </div><!-- /.page-wrap -->
 
+  <script src="js/icons.js"></script>
   <script src="js/layout.js"></script>
   <script src="js/tokens-data.js"></script>
   <script src="js/tokens-app.js"></script>

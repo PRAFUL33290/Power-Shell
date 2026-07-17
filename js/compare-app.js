@@ -213,7 +213,7 @@
         <button type="button" class="scenario-btn model-${color}" data-pick="${s.pick}">
           <span class="sc-label">${s.label}</span>
           <span class="sc-desc">${s.desc}</span>
-          <span class="sc-pick">→ ${pickLabel}</span>
+          <span class="sc-pick">${typeof icon === "function" ? icon("arrow", "icon-sm", 14) : ""} ${pickLabel}</span>
         </button>
       `;
     }).join("");

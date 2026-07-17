@@ -6,7 +6,7 @@
 const USAGE_PRESETS = {
   consumer: {
     label: "Grok app / web (consommateur)",
-    icon: "💬",
+    icon: "chat",
     plans: {
       free: {
         label: "Grok Free",
@@ -48,7 +48,7 @@ const USAGE_PRESETS = {
   },
   api: {
     label: "API xAI (développeur)",
-    icon: "⚡",
+    icon: "bolt",
     plans: {
       t0: {
         label: "API Tier 0",
@@ -89,7 +89,7 @@ const USAGE_PRESETS = {
   },
   build: {
     label: "Grok Build / IDE",
-    icon: "🛠️",
+    icon: "tools",
     plans: {
       beta: {
         label: "Grok Build (session)",

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/icons.css" />
 </head>
 <body class="has-sidebar">
   <div class="bg-grid" aria-hidden="true"></div>
@@ -18,7 +19,7 @@
   <aside class="site-sidebar" id="site-sidebar" aria-label="Navigation">
     <div class="sidebar-top">
       <a href="index.html" class="logo" aria-label="Power.guide — accueil">
-        <span class="logo-mark">Ψ</span>
+        <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
         <span class="logo-text">Power<span class="accent">.guide</span></span>
       </a>
     </div>
@@ -60,7 +61,7 @@
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="logo logo-mobile">
-      <span class="logo-mark">Ψ</span>
+      <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
       <span class="logo-text">Power<span class="accent">.guide</span></span>
     </a>
   </header>
@@ -74,7 +75,7 @@
         <p class="hero-eyebrow">Terminal Linux · Invite de commandes Windows</p>
         <h1>
           Les commandes <span class="grad-linux">Linux</span>
-          <span class="hero-arrow">→</span>
+          <span class="hero-arrow" data-icon="arrow" data-icon-size="22" data-icon-class=""></span>
           <span class="grad-win">Windows</span>
         </h1>
         <p class="hero-sub">
@@ -101,13 +102,13 @@
 
     <section class="shell-cards container" id="categories" aria-label="Les deux terminaux">
       <article class="shell-card linux">
-        <div class="shell-icon">🐧</div>
+        <div class="shell-icon" data-icon="linux" data-icon-size="22"></div>
         <h2>Terminal Linux</h2>
         <p>Bash (ou zsh) : le shell que tu utilises déjà sous Linux / macOS.</p>
         <code class="shell-path">$ ls -la ~</code>
       </article>
       <article class="shell-card cmd">
-        <div class="shell-icon">⬛</div>
+        <div class="shell-icon" data-icon="cmd" data-icon-size="22"></div>
         <h2>CMD Windows</h2>
         <p>L’invite de commandes : tape <strong>cmd</strong> dans la recherche Windows, ou Win + R → <code>cmd</code>.</p>
         <code class="shell-path">C:\&gt; dir %USERPROFILE%</code>
@@ -196,6 +197,7 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <script src="js/icons.js"></script>
   <script src="js/layout.js"></script>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>

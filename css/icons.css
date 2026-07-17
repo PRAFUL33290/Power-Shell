@@ -1,0 +1,153 @@
+/* Icônes SVG (remplacent les emojis) */
+
+.icon {
+  display: inline-block;
+  vertical-align: -0.2em;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.icon-lg {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+}
+
+.icon-xl {
+  width: 36px;
+  height: 36px;
+}
+
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+/* Logo mark */
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0a0b0f;
+  flex-shrink: 0;
+}
+
+.logo-mark .icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  color: #0a0b0f;
+}
+
+/* Shell / feature icon circles */
+.shell-icon,
+.feat-icon,
+.rate-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--accent-2);
+  margin-bottom: 0.6rem;
+  font-size: 0; /* hide leftover text */
+}
+
+.shell-icon .icon,
+.feat-icon .icon,
+.rate-card-icon .icon {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+.shell-card.linux .shell-icon {
+  color: var(--linux);
+  border-color: rgba(61, 214, 140, 0.25);
+  background: rgba(61, 214, 140, 0.08);
+}
+
+.shell-card.cmd .shell-icon {
+  color: var(--ps);
+  border-color: rgba(83, 155, 245, 0.25);
+  background: rgba(83, 155, 245, 0.08);
+}
+
+.provider-card.xai .shell-icon {
+  color: var(--accent);
+}
+.provider-card.openai .shell-icon {
+  color: var(--linux);
+}
+.provider-card.anthropic .shell-icon {
+  color: var(--cmd);
+}
+.provider-card.vibe .shell-icon {
+  color: var(--ps);
+}
+
+/* Inline in filters / pills */
+.filter-btn .icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 0.25rem;
+  vertical-align: -0.15em;
+}
+
+.cat-pill .icon {
+  width: 12px;
+  height: 12px;
+  margin-right: 0.25rem;
+  vertical-align: -0.1em;
+}
+
+/* Terminal demo tool lines */
+.t-tool .icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 0.3rem;
+  color: var(--cmd);
+}
+
+.t-ok .icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 0.3rem;
+  color: var(--linux);
+}
+
+/* Winner banner */
+.winner-panel h2 .icon {
+  width: 28px;
+  height: 28px;
+  vertical-align: -0.35em;
+  margin-right: 0.25rem;
+}
+
+/* Tip warning */
+.tip-num .icon {
+  width: 14px;
+  height: 14px;
+  vertical-align: -0.15em;
+}
+
+/* Arrow between labels */
+.hero-arrow .icon,
+.memo-arrow .icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  color: var(--text-dim);
+}
+
+.memo-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--text-dim);
+}

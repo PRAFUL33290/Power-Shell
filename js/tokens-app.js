@@ -58,7 +58,8 @@
       .map((key) => {
         const p = PROVIDERS[key];
         const active = key === "all" ? " active" : "";
-        return `<button type="button" class="filter-btn${active}" data-provider="${key}">${p.icon} ${p.label}</button>`;
+        const ic = typeof icon === "function" ? icon(p.icon, "icon-sm", 14) : "";
+        return `<button type="button" class="filter-btn${active}" data-provider="${key}">${ic}<span>${p.label}</span></button>`;
       })
       .join("");
 

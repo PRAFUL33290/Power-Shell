@@ -95,7 +95,8 @@
     categoryEl.innerHTML = Object.entries(USAGE_PRESETS)
       .map(([key, cat]) => {
         const active = key === state.category ? " active" : "";
-        return `<button type="button" class="filter-btn${active}" data-cat="${key}">${cat.icon} ${cat.label}</button>`;
+        const ic = typeof icon === "function" ? icon(cat.icon, "icon-sm", 14) : "";
+        return `<button type="button" class="filter-btn${active}" data-cat="${key}">${ic}<span>${cat.label}</span></button>`;
       })
       .join("");
   }

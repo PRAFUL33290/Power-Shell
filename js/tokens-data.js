@@ -87,9 +87,9 @@ const TOKEN_SOURCES = [
 ];
 
 const PROVIDERS = {
-  all: { label: "Tous", icon: "✦" },
-  xai: { label: "xAI Grok", icon: "⚡" },
-  openai: { label: "OpenAI", icon: "◎" },
-  anthropic: { label: "Anthropic", icon: "◆" },
-  vibe: { label: "Vibe", icon: "◇" },
+  all: { label: "Tous", icon: "spark" },
+  xai: { label: "xAI Grok", icon: "bolt" },
+  openai: { label: "OpenAI", icon: "openai" },
+  anthropic: { label: "Anthropic", icon: "claude" },
+  vibe: { label: "Vibe", icon: "vibe" },
 };

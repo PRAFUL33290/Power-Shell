@@ -24,7 +24,8 @@
       .map((key) => {
         const c = CATEGORIES[key];
         const active = key === "all" ? " active" : "";
-        return `<button type="button" class="filter-btn${active}" data-cat="${key}">${c.icon} ${c.label}</button>`;
+        const ic = typeof icon === "function" ? icon(c.icon, "icon-sm", 14) : "";
+        return `<button type="button" class="filter-btn${active}" data-cat="${key}">${ic}<span>${c.label}</span></button>`;
       })
       .join("");
 
@@ -79,7 +80,7 @@
         const idx = COMMANDS.indexOf(cmd);
         return `
           <tr class="cmd-row" data-index="${idx}" tabindex="0" title="Cliquer pour copier la commande Windows">
-            <td class="col-cat"><span class="cat-pill cat-${cmd.cat}">${cat.icon} ${cat.label}</span></td>
+            <td class="col-cat"><span class="cat-pill cat-${cmd.cat}">${typeof icon === "function" && cat.icon ? icon(cat.icon, "icon-sm", 12) : ""} ${cat.label}</span></td>
             <td class="col-linux">${highlightCode(cmd.linux)}</td>
             <td class="col-win">${highlightCode(cmd.win)}</td>
             <td class="col-desc">${escapeHtml(cmd.desc)}</td>
@@ -150,7 +151,7 @@
         (cmd) => `
       <article class="memo-card" data-win="${escapeHtml(extractCopyText(cmd.win))}" title="Copier la commande Windows">
         <div class="memo-linux"><code>${escapeHtml(cmd.linux)}</code></div>
-        <div class="memo-arrow">→</div>
+        <div class="memo-arrow">${typeof icon === "function" ? icon("arrow", "", 16) : "→"}</div>
         <div class="memo-win"><code>${escapeHtml(extractCopyText(cmd.win))}</code></div>
         <p class="memo-desc">${escapeHtml(cmd.desc)}</p>
       </article>

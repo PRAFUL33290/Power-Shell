@@ -12,7 +12,7 @@ const PROVIDERS = {
     vendor: "Anthropic",
     product: "Claude Code · API Messages",
     color: "claude",
-    icon: "◆",
+    icon: "claude",
     tagline: "Fenêtres 5 h côté app · RPM/TPM stricts côté API",
     // Relative scores 0–10 for “pouvoir refaire des requêtes vite”
     scores: {
@@ -34,7 +34,7 @@ const PROVIDERS = {
     vendor: "OpenAI",
     product: "Codex CLI / app · pool ChatGPT",
     color: "codex",
-    icon: "◎",
+    icon: "openai",
     tagline: "Quota tokens + fenêtre ~5 h (pas un simple RPM)",
     scores: {
       throughput: 6,
@@ -55,7 +55,7 @@ const PROVIDERS = {
     vendor: "xAI / SpaceXAI",
     product: "API · Grok Build CLI · app",
     color: "grok",
-    icon: "⚡",
+    icon: "bolt",
     tagline: "API haut débit (RPS/TPM) · pay-as-you-go pour relancer",
     scores: {
       throughput: 9.5,

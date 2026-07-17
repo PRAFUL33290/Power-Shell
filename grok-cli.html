@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/icons.css" />
   <link rel="stylesheet" href="css/grok-cli.css" />
 </head>
 <body class="has-sidebar">
@@ -19,7 +20,7 @@
   <aside class="site-sidebar" id="site-sidebar" aria-label="Navigation">
     <div class="sidebar-top">
       <a href="index.html" class="logo" aria-label="Power.guide — accueil">
-        <span class="logo-mark">Ψ</span>
+        <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
         <span class="logo-text">Power<span class="accent">.guide</span></span>
       </a>
     </div>
@@ -61,7 +62,7 @@
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="logo logo-mobile">
-      <span class="logo-mark">Ψ</span>
+      <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
       <span class="logo-text">Power<span class="accent">.guide</span></span>
     </a>
   </header>
@@ -97,11 +98,11 @@
 
 <span class="t-user">› Refactor le module auth et ajoute des tests</span>
 
-<span class="t-tool">⚙  read_file</span>  <span class="t-path">src/auth/session.ts</span>
-<span class="t-tool">⚙  search_replace</span>  <span class="t-path">src/auth/session.ts</span>
-<span class="t-tool">⚙  run_terminal</span>  <span class="t-path">npm test -- auth</span>
+<span class="t-tool"><span data-icon="gear" data-icon-size="14"></span> read_file</span>  <span class="t-path">src/auth/session.ts</span>
+<span class="t-tool"><span data-icon="gear" data-icon-size="14"></span> search_replace</span>  <span class="t-path">src/auth/session.ts</span>
+<span class="t-tool"><span data-icon="terminal" data-icon-size="14"></span> run_terminal</span>  <span class="t-path">npm test -- auth</span>
 
-<span class="t-ok">✓ 12 tests passed · 3 fichiers modifiés</span></pre>
+<span class="t-ok"><span data-icon="check" data-icon-size="14"></span> 12 tests passed · 3 fichiers modifiés</span></pre>
         </div>
       </div>
     </section>
@@ -132,7 +133,7 @@
 
       <div class="features-grid">
         <article class="feat-card feat-big">
-          <span class="feat-icon">🖥️</span>
+          <span class="feat-icon" data-icon="monitor" data-icon-size="22"></span>
           <h3>TUI full-screen, pensée pour le code</h3>
           <p>
             Scrollback live des outils, prompt en bas, pièces jointes avec
@@ -142,49 +143,49 @@
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">🧠</span>
+          <span class="feat-icon" data-icon="brain" data-icon-size="22"></span>
           <h3>Agent, pas chatbot</h3>
           <p>Explore le repo, planifie, édite, relance les tests. Multi-tours jusqu’à ce que le job soit fait.</p>
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">⚡</span>
+          <span class="feat-icon" data-icon="bolt" data-icon-size="22"></span>
           <h3>Mode headless</h3>
           <p><code>grok -p "…"</code> pour scripts, CI, cron. Sortie plain, JSON ou streaming.</p>
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">🔌</span>
+          <span class="feat-icon" data-icon="plug" data-icon-size="22"></span>
           <h3>MCP servers</h3>
           <p>Branche GitHub, calendrier, bases de données… Les outils externes deviennent des armes de l’agent.</p>
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">📦</span>
+          <span class="feat-icon" data-icon="box" data-icon-size="22"></span>
           <h3>Skills & plugins</h3>
           <p>Encode tes procédures en <code>SKILL.md</code>. Plus besoin de tout réexpliquer à chaque session.</p>
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">🛡️</span>
+          <span class="feat-icon" data-icon="shield" data-icon-size="22"></span>
           <h3>Permissions & sandbox</h3>
           <p>Approuve commande par commande, ou YOLO. Sandbox FS/réseau pour limiter la surface d’attaque.</p>
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">🧩</span>
+          <span class="feat-icon" data-icon="puzzle" data-icon-size="22"></span>
           <h3>Subagents & plan mode</h3>
           <p>Délègue en parallèle, isole en worktree, planifie avant d’écrire du code en masse.</p>
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">🔗</span>
+          <span class="feat-icon" data-icon="link" data-icon-size="22"></span>
           <h3>IDE via ACP</h3>
           <p>Mode agent stdio / WebSocket pour brancher Zed, Neovim, Emacs ou ton outil maison.</p>
         </article>
 
         <article class="feat-card">
-          <span class="feat-icon">🌍</span>
+          <span class="feat-icon" data-icon="earth" data-icon-size="22"></span>
           <h3>macOS · Linux · Windows</h3>
           <p>Install bash ou PowerShell. WSL, Git Bash, terminal natif — le CLI suit ton OS.</p>
         </article>
@@ -375,6 +376,7 @@
       });
     })();
   </script>
+  <script src="js/icons.js"></script>
   <script src="js/layout.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@
       .map(
         (p) => `
       <article class="rate-card rate-${p.color}">
-        <div class="rate-card-icon">${p.icon}</div>
+        <div class="rate-card-icon">${typeof icon === "function" ? icon(p.icon, "icon-lg", 22) : ""}</div>
         <h2>${p.name}</h2>
         <p class="rate-vendor">${p.vendor} · ${p.product}</p>
         <p class="rate-tagline">${p.tagline}</p>
@@ -190,7 +190,7 @@
     $("winner-banner").innerHTML = `
       <div class="winner-panel rate-${best.color}">
         <span class="winner-label">Pour refaire des requêtes le plus vite (API / agents)</span>
-        <h2>${best.icon} ${best.name} mène en général</h2>
+        <h2>${typeof icon === "function" ? icon(best.icon, "icon-lg", 28) : ""} ${best.name} mène en général</h2>
         <p>
           Score global indicatif <strong>${bestAvg.toFixed(1)}/10</strong> —
           débit, latence, récupération après limite et boucles agent.

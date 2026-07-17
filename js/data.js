@@ -107,7 +107,7 @@ const COMMANDS = [
     cat: "fichiers",
     linux: "rm -rf dossier/",
     win: "rmdir /s /q dossier",
-    desc: "Supprime un dossier et son contenu (⚠️ destructif)",
+    desc: "Supprime un dossier et son contenu (attention : destructif)",
   },
   {
     cat: "fichiers",
@@ -494,40 +494,13 @@ const COMMANDS = [
 ];
 
 const CATEGORIES = {
-  all: {
-    label: "Tout",
-    icon: "✦"
-  },
-  navigation: {
-    label: "Navigation",
-    icon: "📁"
-  },
-  fichiers: {
-    label: "Fichiers",
-    icon: "📄"
-  },
-  systeme: {
-    label: "Système",
-    icon: "⚙️"
-  },
-  reseau: {
-    label: "Réseau",
-    icon: "🌐"
-  },
-  env: {
-    label: "Environnement",
-    icon: "🔧"
-  },
-  texte: {
-    label: "Texte & pipe",
-    icon: "✏️"
-  },
-  archives: {
-    label: "Archives",
-    icon: "📦"
-  },
-  packages: {
-    label: "Packages",
-    icon: "📥"
-  }
+  all: { label: "Tout", icon: "spark" },
+  navigation: { label: "Navigation", icon: "folder" },
+  fichiers: { label: "Fichiers", icon: "file" },
+  systeme: { label: "Système", icon: "gear" },
+  reseau: { label: "Réseau", icon: "globe" },
+  env: { label: "Environnement", icon: "wrench" },
+  texte: { label: "Texte & pipe", icon: "pencil" },
+  archives: { label: "Archives", icon: "package" },
+  packages: { label: "Packages", icon: "download" },
 };

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/icons.css" />
   <link rel="stylesheet" href="css/compare.css" />
 </head>
 <body class="has-sidebar">
@@ -19,7 +20,7 @@
   <aside class="site-sidebar" id="site-sidebar" aria-label="Navigation">
     <div class="sidebar-top">
       <a href="index.html" class="logo" aria-label="Power.guide — accueil">
-        <span class="logo-mark">Ψ</span>
+        <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
         <span class="logo-text">Power<span class="accent">.guide</span></span>
       </a>
     </div>
@@ -61,7 +62,7 @@
       <span></span><span></span><span></span>
     </button>
     <a href="index.html" class="logo logo-mobile">
-      <span class="logo-mark">Ψ</span>
+      <span class="logo-mark" data-icon="logo" data-icon-size="18"></span>
       <span class="logo-text">Power<span class="accent">.guide</span></span>
     </a>
   </header>
@@ -193,7 +194,7 @@
           <p>Beaucoup d’équipes mixent : Grok pour le grind, Fable pour le hard, GPT pour l’UX métier.</p>
         </article>
         <article class="tip-card">
-          <span class="tip-num">⚠</span>
+          <span class="tip-num" data-icon="warning" data-icon-size="14"></span>
           <h3>Les benches bougent</h3>
           <p>Les scores varient selon la date et le test. Croise toujours avec tes cas réels.</p>
         </article>
@@ -209,6 +210,7 @@
   <div id="site-footer"></div>
   </div><!-- /.page-wrap -->
 
+  <script src="js/icons.js"></script>
   <script src="js/layout.js"></script>
   <script src="js/compare-data.js"></script>
   <script src="js/compare-app.js"></script>

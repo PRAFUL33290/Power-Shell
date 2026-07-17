@@ -155,7 +155,7 @@ body.has-sidebar .container {
   border-radius: 9px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #0a0b0f;
-  font-size: 1.15rem;
+  font-size: 0;
   font-weight: 700;
 }
 
@@ -584,6 +584,9 @@ body.has-sidebar .container {
 }
 
 .filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-family: var(--font);
   font-size: 0.8rem;
   font-weight: 500;
@@ -717,7 +720,9 @@ th.col-win {
 }
 
 .cat-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
   font-size: 0.72rem;
   font-weight: 500;
   color: var(--text-muted);
