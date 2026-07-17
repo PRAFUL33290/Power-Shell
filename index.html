@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linux → Windows | Commandes Shell — Design by Grok</title>
-  <meta name="description" content="Apprenez Windows PowerShell en partant des commandes Linux Bash les plus connues. Table de correspondance interactive." />
+  <title>Linux → Windows CMD | Commandes Terminal — Design by Grok</title>
+  <meta name="description" content="Apprenez l’invite de commandes Windows (CMD) en partant des commandes Linux Bash les plus connues. Tableau de correspondance interactif." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -17,12 +17,12 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="logo">
-        <span class="logo-mark">Ψ</span>
-        <span class="logo-text">Power-Shell<span class="accent">.guide</span></span>
+        <span class="logo-mark">$</span>
+        <span class="logo-text">Shell<span class="accent">.guide</span></span>
       </a>
       <nav class="nav">
         <a href="#comparaison">Comparaison</a>
-        <a href="#categories">Catégories</a>
+        <a href="#categories">Terminaux</a>
         <a href="#tips">Astuces</a>
         <a href="#cheatsheet">Mémo</a>
       </nav>
@@ -33,15 +33,16 @@
   <main>
     <section class="hero">
       <div class="container">
-        <p class="hero-eyebrow">Tu connais Linux · Tu passes sur Windows</p>
+        <p class="hero-eyebrow">Terminal Linux · Invite de commandes Windows</p>
         <h1>
           Les commandes <span class="grad-linux">Linux</span>
           <span class="hero-arrow">→</span>
           <span class="grad-win">Windows</span>
         </h1>
         <p class="hero-sub">
-          Tableau interactif des commandes Bash les plus connues, avec leurs équivalents
-          <strong>PowerShell</strong> et <strong>CMD</strong>. Clique une ligne pour copier.
+          Les commandes Bash les plus connues, en face de leurs équivalents
+          dans l’<strong>invite de commandes Windows (CMD)</strong>.
+          Clique une ligne pour copier la commande Windows.
         </p>
         <div class="hero-stats">
           <div class="stat">
@@ -49,8 +50,8 @@
             <span class="stat-label">commandes</span>
           </div>
           <div class="stat">
-            <span class="stat-num">3</span>
-            <span class="stat-label">shells</span>
+            <span class="stat-num">2</span>
+            <span class="stat-label">terminaux</span>
           </div>
           <div class="stat">
             <span class="stat-num">8</span>
@@ -60,23 +61,17 @@
       </div>
     </section>
 
-    <section class="shell-cards container" id="categories" aria-label="Les trois shells">
+    <section class="shell-cards container" id="categories" aria-label="Les deux terminaux">
       <article class="shell-card linux">
         <div class="shell-icon">🐧</div>
-        <h2>Bash / Linux</h2>
-        <p>Le shell classique que tu connais déjà : <code>bash</code>, <code>zsh</code>, etc.</p>
+        <h2>Terminal Linux</h2>
+        <p>Bash (ou zsh) : le shell que tu utilises déjà sous Linux / macOS.</p>
         <code class="shell-path">$ ls -la ~</code>
-      </article>
-      <article class="shell-card powershell">
-        <div class="shell-icon">⚡</div>
-        <h2>PowerShell</h2>
-        <p>Le shell moderne de Windows. Cmdlets verb-noun, objets, pipelines puissants.</p>
-        <code class="shell-path">PS> Get-ChildItem ~</code>
       </article>
       <article class="shell-card cmd">
         <div class="shell-icon">⬛</div>
-        <h2>CMD</h2>
-        <p>L’invite de commandes historique. Utile pour les scripts <code>.bat</code> / <code>.cmd</code>.</p>
+        <h2>CMD Windows</h2>
+        <p>L’invite de commandes : tape <strong>cmd</strong> dans la recherche Windows, ou Win + R → <code>cmd</code>.</p>
         <code class="shell-path">C:\&gt; dir %USERPROFILE%</code>
       </article>
     </section>
@@ -87,19 +82,14 @@
           <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
           </svg>
-          <input type="search" id="search" placeholder="Rechercher une commande (ls, cd, Get-ChildItem…)" autocomplete="off" />
+          <input type="search" id="search" placeholder="Rechercher une commande (ls, dir, cd, mkdir…)" autocomplete="off" />
           <kbd class="kbd-hint">/</kbd>
         </div>
         <div class="filters" id="filters" role="group" aria-label="Filtrer par catégorie">
           <button type="button" class="filter-btn active" data-cat="all">Tout</button>
         </div>
-        <div class="view-toggles" role="group" aria-label="Colonnes visibles">
-          <label class="toggle"><input type="checkbox" id="show-linux" checked /> Linux</label>
-          <label class="toggle"><input type="checkbox" id="show-ps" checked /> PowerShell</label>
-          <label class="toggle"><input type="checkbox" id="show-cmd" checked /> CMD</label>
-        </div>
       </div>
-      <p class="result-meta"><span id="visible-count">0</span> commande(s) affichée(s) · clic = copier PowerShell</p>
+      <p class="result-meta"><span id="visible-count">0</span> commande(s) affichée(s) · clic = copier la commande Windows</p>
     </section>
 
     <section class="table-section container">
@@ -108,9 +98,8 @@
           <thead>
             <tr>
               <th class="col-cat">Catégorie</th>
-              <th class="col-linux">Linux / Bash</th>
-              <th class="col-ps">PowerShell</th>
-              <th class="col-cmd">CMD</th>
+              <th class="col-linux">Terminal Linux (Bash)</th>
+              <th class="col-win">CMD Windows</th>
               <th class="col-desc">Description</th>
             </tr>
           </thead>
@@ -123,51 +112,51 @@
     </section>
 
     <section class="tips-section container" id="tips">
-      <h2 class="section-title">Astuces pour passer de Linux à Windows</h2>
+      <h2 class="section-title">Astuces pour passer de Linux à CMD Windows</h2>
       <div class="tips-grid">
         <article class="tip-card">
           <span class="tip-num">01</span>
-          <h3>Ouvre PowerShell, pas CMD</h3>
-          <p>Win + X → <strong>Terminal Windows</strong> ou PowerShell. C’est l’équivalent moderne de ton terminal Linux.</p>
+          <h3>Ouvre l’invite de commandes</h3>
+          <p>Recherche Windows → <strong>Invite de commandes</strong>, ou Win + R puis tape <code>cmd</code> et Entrée.</p>
         </article>
         <article class="tip-card">
           <span class="tip-num">02</span>
-          <h3>Les alias Linux existent déjà</h3>
-          <p>Dans PowerShell, <code>ls</code>, <code>cd</code>, <code>pwd</code>, <code>cat</code>, <code>mkdir</code>, <code>rm</code> fonctionnent souvent — ce sont des alias vers des cmdlets.</p>
+          <h3>Les chemins sont différents</h3>
+          <p>Sous Linux : <code>/home/user</code>. Sous Windows : <code>C:\Users\user</code>. Les dossiers se séparent avec <code>\</code>.</p>
         </article>
         <article class="tip-card">
           <span class="tip-num">03</span>
-          <h3>Les chemins changent</h3>
-          <p><code>/</code> devient <code>\</code> (ou <code>/</code> marche aussi en PS). <code>~</code> = <code>$HOME</code>. <code>/etc</code> n’existe pas : regarde <code>C:\Windows\System32</code>.</p>
+          <h3>Pas de ~ ni de $VAR</h3>
+          <p>Le dossier perso = <code>%USERPROFILE%</code>. Une variable = <code>%NOM%</code> (ex. <code>%PATH%</code>, <code>%CD%</code>).</p>
         </article>
         <article class="tip-card">
           <span class="tip-num">04</span>
-          <h3>Objets, pas du texte</h3>
-          <p>Le pipeline PowerShell passe des <em>objets</em>, pas des lignes de texte. <code>Get-Process | Where-Object CPU -gt 10</code>.</p>
+          <h3>dir ≈ ls, type ≈ cat</h3>
+          <p>Beaucoup d’équivalents sont simples : <code>dir</code>, <code>cd</code>, <code>copy</code>, <code>move</code>, <code>del</code>, <code>type</code>, <code>cls</code>.</p>
         </article>
         <article class="tip-card">
           <span class="tip-num">05</span>
-          <h3>Git Bash &amp; WSL</h3>
-          <p>Si tu veux du vrai Bash sous Windows : installe <strong>Git for Windows</strong> ou <strong>WSL2</strong> (<code>wsl --install</code>).</p>
+          <h3>Aide sur une commande</h3>
+          <p>Tape <code>commande /?</code> — ex. <code>dir /?</code> ou <code>copy /?</code>. C’est l’équivalent de <code>man</code> / <code>--help</code>.</p>
         </article>
         <article class="tip-card">
           <span class="tip-num">06</span>
-          <h3>Aide intégrée</h3>
-          <p><code>Get-Help Get-ChildItem -Full</code> · <code>Get-Command *Item*</code> · <code>Get-Alias</code> pour lister les raccourcis.</p>
+          <h3>Admin si besoin</h3>
+          <p>Clic droit sur « Invite de commandes » → <strong>Exécuter en tant qu’administrateur</strong> (équivalent de <code>sudo</code>).</p>
         </article>
       </div>
     </section>
 
     <section class="cheatsheet-section container" id="cheatsheet">
-      <h2 class="section-title">Mémo express — les 12 indispensables</h2>
+      <h2 class="section-title">Mémo express — les indispensables</h2>
       <div class="memo-grid" id="memo-grid"></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>Design by <strong>Grok</strong> · xAI · Apprends Windows sans oublier Linux</p>
-      <p class="footer-note">Les alias PowerShell peuvent varier selon la version. Préfère les cmdlets officielles en production.</p>
+      <p>Design by <strong>Grok</strong> · xAI · Terminal Linux → CMD Windows</p>
+      <p class="footer-note">CMD = Invite de commandes Windows. Certaines commandes Linux n’ont pas d’équivalent exact en CMD.</p>
     </div>
   </footer>
 

@@ -1,5 +1,5 @@
 /**
- * Power-Shell Guide — interactions
+ * Shell Guide — Linux Bash ↔ CMD Windows
  * Design by Grok
  */
 
@@ -14,16 +14,10 @@
   const statCountEl = document.getElementById("stat-count");
   const toastEl = document.getElementById("toast");
   const memoGrid = document.getElementById("memo-grid");
-  const table = document.getElementById("cmd-table");
-
-  const showLinux = document.getElementById("show-linux");
-  const showPs = document.getElementById("show-ps");
-  const showCmd = document.getElementById("show-cmd");
 
   let activeCat = "all";
   let toastTimer = null;
 
-  /* ——— Init filters ——— */
   function buildFilters() {
     const cats = Object.keys(CATEGORIES);
     filtersEl.innerHTML = cats
@@ -44,13 +38,12 @@
     });
   }
 
-  /* ——— Render table ——— */
   function getFiltered() {
     const q = (searchEl.value || "").trim().toLowerCase();
     return COMMANDS.filter((cmd) => {
       if (activeCat !== "all" && cmd.cat !== activeCat) return false;
       if (!q) return true;
-      const hay = [cmd.linux, cmd.ps, cmd.cmd, cmd.desc, cmd.cat].join(" ").toLowerCase();
+      const hay = [cmd.linux, cmd.win, cmd.desc, cmd.cat].join(" ").toLowerCase();
       return hay.includes(q);
     });
   }
@@ -64,12 +57,15 @@
   }
 
   function highlightCode(code) {
-    // Sépare commentaire PowerShell / bash style pour le style
     const parts = String(code).split(/(#.*)$/);
     if (parts.length > 1) {
       return `<code>${escapeHtml(parts[0])}</code><span class="code-comment">${escapeHtml(parts[1] || "")}</span>`;
     }
     return `<code>${escapeHtml(code)}</code>`;
+  }
+
+  function extractCopyText(cmd) {
+    return String(cmd).split("#")[0].trim();
   }
 
   function render() {
@@ -78,34 +74,19 @@
     emptyEl.hidden = list.length > 0;
 
     body.innerHTML = list
-      .map((cmd, i) => {
+      .map((cmd) => {
         const cat = CATEGORIES[cmd.cat] || { label: cmd.cat, icon: "" };
+        const idx = COMMANDS.indexOf(cmd);
         return `
-          <tr class="cmd-row" data-index="${COMMANDS.indexOf(cmd)}" tabindex="0" title="Cliquer pour copier la commande PowerShell">
+          <tr class="cmd-row" data-index="${idx}" tabindex="0" title="Cliquer pour copier la commande Windows">
             <td class="col-cat"><span class="cat-pill cat-${cmd.cat}">${cat.icon} ${cat.label}</span></td>
             <td class="col-linux">${highlightCode(cmd.linux)}</td>
-            <td class="col-ps">${highlightCode(cmd.ps)}</td>
-            <td class="col-cmd">${highlightCode(cmd.cmd)}</td>
+            <td class="col-win">${highlightCode(cmd.win)}</td>
             <td class="col-desc">${escapeHtml(cmd.desc)}</td>
           </tr>
         `;
       })
       .join("");
-  }
-
-  /* ——— Column visibility ——— */
-  function updateColumns() {
-    table.classList.toggle("hide-linux", !showLinux.checked);
-    table.classList.toggle("hide-ps", !showPs.checked);
-    table.classList.toggle("hide-cmd", !showCmd.checked);
-  }
-
-  [showLinux, showPs, showCmd].forEach((el) => el.addEventListener("change", updateColumns));
-
-  /* ——— Copy on click ——— */
-  function extractCopyText(psCmd) {
-    // Prend la partie avant le commentaire #
-    return psCmd.split("#")[0].trim();
   }
 
   function showToast(msg) {
@@ -120,7 +101,6 @@
       await navigator.clipboard.writeText(text);
       showToast(`Copié : ${text}`);
     } catch {
-      // fallback
       const ta = document.createElement("textarea");
       ta.value = text;
       document.body.appendChild(ta);
@@ -134,10 +114,9 @@
   body.addEventListener("click", (e) => {
     const row = e.target.closest(".cmd-row");
     if (!row) return;
-    const idx = Number(row.dataset.index);
-    const cmd = COMMANDS[idx];
+    const cmd = COMMANDS[Number(row.dataset.index)];
     if (!cmd) return;
-    copyText(extractCopyText(cmd.ps));
+    copyText(extractCopyText(cmd.win));
     row.classList.add("copied");
     setTimeout(() => row.classList.remove("copied"), 400);
   });
@@ -150,10 +129,8 @@
     row.click();
   });
 
-  /* ——— Search ——— */
   searchEl.addEventListener("input", render);
 
-  // Raccourci /
   document.addEventListener("keydown", (e) => {
     if (e.key === "/" && document.activeElement !== searchEl && document.activeElement?.tagName !== "INPUT") {
       e.preventDefault();
@@ -166,16 +143,15 @@
     }
   });
 
-  /* ——— Mémo des essentiels ——— */
   function renderMemo() {
     const essentials = COMMANDS.filter((c) => c.essential);
     memoGrid.innerHTML = essentials
       .map(
         (cmd) => `
-      <article class="memo-card" data-ps="${escapeHtml(extractCopyText(cmd.ps))}" title="Copier PowerShell">
+      <article class="memo-card" data-win="${escapeHtml(extractCopyText(cmd.win))}" title="Copier la commande Windows">
         <div class="memo-linux"><code>${escapeHtml(cmd.linux)}</code></div>
         <div class="memo-arrow">→</div>
-        <div class="memo-ps"><code>${escapeHtml(extractCopyText(cmd.ps))}</code></div>
+        <div class="memo-win"><code>${escapeHtml(extractCopyText(cmd.win))}</code></div>
         <p class="memo-desc">${escapeHtml(cmd.desc)}</p>
       </article>
     `
@@ -185,16 +161,14 @@
     memoGrid.addEventListener("click", (e) => {
       const card = e.target.closest(".memo-card");
       if (!card) return;
-      copyText(card.dataset.ps);
+      copyText(card.dataset.win);
     });
   }
 
-  /* ——— Boot ——— */
   function init() {
     statCountEl.textContent = String(COMMANDS.length);
     buildFilters();
     render();
-    updateColumns();
     renderMemo();
   }
 

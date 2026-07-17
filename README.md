@@ -1,45 +1,42 @@
-# Power-Shell Guide
+# Shell Guide — Linux → Windows CMD
 
 **Design by Grok · xAI**
 
-Page interactive pour apprendre **Windows PowerShell** (et CMD) en partant des commandes **Linux / Bash** que tu connais déjà.
+Page interactive pour apprendre l’**invite de commandes Windows (CMD)** en partant des commandes du **terminal Linux (Bash)**.
 
 ## Contenu
 
-- Tableau de correspondance **Linux → PowerShell → CMD**
-- ~70 commandes réparties en 8 catégories
-- Recherche instantanée + filtres
-- Clic pour copier la commande PowerShell
-- Mémo des 12 indispensables
-- Astuces pour basculer de Linux vers Windows
+- Tableau de correspondance **Linux / Bash → CMD Windows** (2 colonnes)
+- ~80 commandes en 8 catégories
+- Recherche + filtres
+- Clic pour copier la commande Windows
+- Mémo des commandes indispensables
+- Astuces pour basculer de Linux vers CMD
 
 ## Lancer
 
-Ouvre simplement `index.html` dans ton navigateur :
+Ouvre `index.html` dans ton navigateur :
 
 ```bash
-# Depuis ce dossier
-xdg-open index.html   # Linux
-# ou double-clic / ouvre avec Live Server
+xdg-open index.html
 ```
 
-Aucun serveur ni dépendance n’est requis (HTML / CSS / JS pur).
+Aucun serveur ni dépendance (HTML / CSS / JS pur).
 
 ## Structure
 
 ```
 ├── index.html
 ├── css/style.css
-├── js/data.js      # base de commandes
+├── js/data.js      # commandes Linux ↔ Windows
 └── js/app.js       # recherche, filtres, copie
 ```
 
-## Shells couverts
+## Les 2 terminaux
 
-| Shell        | Rôle                                      |
-|--------------|-------------------------------------------|
-| Bash / Linux | Ce que tu connais déjà                    |
-| PowerShell   | Shell moderne Windows (recommandé)        |
-| CMD          | Invite classique (scripts `.bat` / `.cmd`)|
+| Terminal              | Comment l’ouvrir                          |
+|-----------------------|-------------------------------------------|
+| Linux (Bash)          | Terminal sous Linux / macOS               |
+| CMD Windows           | Win + R → `cmd` ou recherche « Invite de commandes » |
 
-Bon apprentissage ⚡
+Bon apprentissage.

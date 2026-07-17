@@ -254,7 +254,7 @@ body {
 /* ——— Shell cards ——— */
 .shell-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 2.5rem;
 }
@@ -274,11 +274,8 @@ body {
 .shell-card.linux:hover {
   border-color: rgba(61, 214, 140, 0.4);
 }
-.shell-card.powershell:hover {
-  border-color: rgba(83, 155, 245, 0.45);
-}
 .shell-card.cmd:hover {
-  border-color: rgba(240, 180, 41, 0.4);
+  border-color: rgba(83, 155, 245, 0.45);
 }
 
 .shell-icon {
@@ -314,11 +311,8 @@ body {
 .shell-card.linux .shell-path {
   color: var(--linux);
 }
-.shell-card.powershell .shell-path {
-  color: var(--ps);
-}
 .shell-card.cmd .shell-path {
-  color: var(--cmd);
+  color: var(--ps);
 }
 
 /* ——— Toolbar ——— */
@@ -417,31 +411,6 @@ body {
   font-weight: 600;
 }
 
-.view-toggles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding-top: 0.25rem;
-  border-top: 1px solid var(--border);
-}
-
-.toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  user-select: none;
-}
-
-.toggle input {
-  accent-color: var(--accent);
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
-
 .result-meta {
   font-size: 0.8rem;
   color: var(--text-dim);
@@ -466,7 +435,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
-  min-width: 780px;
+  min-width: 640px;
 }
 
 .cmd-table thead {
@@ -488,15 +457,11 @@ body {
   white-space: nowrap;
 }
 
-.col-linux th,
 th.col-linux {
   color: var(--linux);
 }
-th.col-ps {
+th.col-win {
   color: var(--ps);
-}
-th.col-cmd {
-  color: var(--cmd);
 }
 
 .cmd-table td {
@@ -533,16 +498,9 @@ th.col-cmd {
   border-radius: 5px;
 }
 
-.col-ps code {
+.col-win code {
   color: var(--ps);
   background: var(--ps-dim);
-  padding: 0.2rem 0.45rem;
-  border-radius: 5px;
-}
-
-.col-cmd code {
-  color: var(--cmd);
-  background: var(--cmd-dim);
   padding: 0.2rem 0.45rem;
   border-radius: 5px;
 }
@@ -570,17 +528,6 @@ th.col-cmd {
   border-radius: 999px;
   padding: 0.2rem 0.55rem;
   white-space: nowrap;
-}
-
-/* Column hide */
-.cmd-table.hide-linux .col-linux {
-  display: none;
-}
-.cmd-table.hide-ps .col-ps {
-  display: none;
-}
-.cmd-table.hide-cmd .col-cmd {
-  display: none;
 }
 
 .empty-state {
@@ -688,7 +635,7 @@ th.col-cmd {
   margin: 0.2rem 0;
 }
 
-.memo-ps code {
+.memo-win code {
   font-family: var(--mono);
   font-size: 0.82rem;
   color: var(--ps);
@@ -782,9 +729,6 @@ th.col-cmd {
     gap: 1.5rem;
   }
 
-  .view-toggles {
-    gap: 0.75rem;
-  }
 }
 
 /* Prefers reduced motion */
