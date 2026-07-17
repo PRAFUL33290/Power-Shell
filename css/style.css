@@ -88,7 +88,19 @@ body {
 /* ——— Layout sidebar gauche (toujours présente) ——— */
 body,
 body.has-sidebar {
-  padding-left: var(--sidebar-w);
+  padding-left: 0; /* le décalage est sur .page-wrap */
+}
+
+/* Contenu à droite de la sidebar — isole les tableaux larges */
+.page-wrap {
+  margin-left: var(--sidebar-w);
+  min-width: 0;
+  max-width: 100%;
+  width: auto;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  overflow-x: clip;
 }
 
 body .container,
@@ -96,12 +108,13 @@ body.has-sidebar .container {
   width: min(1100px, 100% - 2rem);
 }
 
-/* Sidebar gauche — fixe, toujours visible sur desktop */
+/* Sidebar gauche — fixe, hors du flux, jamais poussée par les tableaux */
 .site-sidebar {
   position: fixed !important;
   top: 0;
   left: 0;
-  z-index: 200;
+  bottom: 0;
+  z-index: 1000;
   width: var(--sidebar-w);
   height: 100vh;
   height: 100dvh;
@@ -111,9 +124,10 @@ body.has-sidebar .container {
   border-right: 1px solid var(--border);
   overflow-x: hidden;
   overflow-y: auto;
-  transform: none;
-  visibility: visible;
-  opacity: 1;
+  transform: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto;
 }
 
 .sidebar-top {
@@ -861,6 +875,13 @@ th.col-win {
   opacity: 1;
 }
 
+/* Tableaux larges : scroll interne, ne poussent pas la sidebar */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* ——— Responsive : sidebar en tiroir sous 960px ——— */
 @media (max-width: 960px) {
   body,
@@ -868,12 +889,17 @@ th.col-win {
     padding-left: 0;
   }
 
+  .page-wrap {
+    margin-left: 0;
+    overflow-x: visible;
+  }
+
   .mobile-topbar {
     display: flex;
   }
 
   .site-sidebar {
-    transform: translateX(-105%);
+    transform: translateX(-105%) !important;
     transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: none;
   }

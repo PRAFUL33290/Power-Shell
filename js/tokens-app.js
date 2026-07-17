@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  const body = document.getElementById("price-body");
+  const priceBody = document.getElementById("price-body");
   const filtersEl = document.getElementById("filters");
   const searchEl = document.getElementById("search");
   const emptyEl = document.getElementById("empty-state");
@@ -16,6 +16,11 @@
   const outputTokensEl = document.getElementById("output-tokens");
   const scenarioBtns = document.getElementById("scenario-btns");
   const sourcesList = document.getElementById("sources-list");
+
+  if (!priceBody || !filtersEl || !searchEl) {
+    console.error("[tokens] éléments manquants — abort");
+    return;
+  }
 
   let activeProvider = "all";
 
@@ -94,7 +99,7 @@
     const maxIn = Math.max(...TOKEN_PRICING.filter((r) => r.input != null).map((r) => r.input), 1);
     const maxOut = Math.max(...TOKEN_PRICING.filter((r) => r.output != null).map((r) => r.output), 1);
 
-    body.innerHTML = list
+    priceBody.innerHTML = list
       .map((row) => {
         const inCell =
           row.input == null
