@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage Grok | Quotas & % restant — Design by Grok</title>
+  <meta name="description" content="Suis ton usage Grok : combien tu as droit, ce que tu as consommé, et le pourcentage restant. Free, SuperGrok, API xAI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/usage.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-usage" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="usage.html" class="logo">
+        <span class="logo-mark">◉</span>
+        <span class="logo-text">Grok<span class="accent">.usage</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Shell</a>
+        <a href="tokens.html">Prix tokens</a>
+        <a href="#suivi">Suivi</a>
+        <a href="#astuces">Astuces</a>
+      </nav>
+      <span class="badge">Design by Grok · xAI</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Quotas Grok · % restant · suivi local</p>
+        <h1>
+          Où en es-tu sur
+          <span class="grad-win">Grok</span> ?
+        </h1>
+        <p class="hero-sub">
+          Choisis ton plan, indique ce que tu as déjà utilisé, et vois
+          <strong>combien il te reste en %</strong>.
+          Les presets sont indicatifs — tu peux tout ajuster.
+        </p>
+      </div>
+    </section>
+
+    <section class="overall-section container" id="suivi">
+      <div class="overall-panel">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="ring-bg" cx="50" cy="50" r="45" />
+            <circle class="ring-fill ok" id="overall-fill" cx="50" cy="50" r="45"
+              stroke-dasharray="283" stroke-dashoffset="70" />
+          </svg>
+          <div class="ring-center">
+            <span class="ring-pct" id="overall-pct">—</span>
+            <span class="ring-sub" id="overall-label">reste en moyenne</span>
+          </div>
+        </div>
+        <div class="overall-copy">
+          <h2>Reste global (moyenne)</h2>
+          <p>Moyenne du % restant sur tous les compteurs actifs du plan sélectionné.</p>
+          <div class="overall-chips">
+            <span class="chip used" id="summary-used">—</span>
+            <span class="chip left" id="summary-left">—</span>
+          </div>
+          <div class="overall-actions">
+            <button type="button" class="btn-primary" id="btn-reset-all">Reset usage du plan</button>
+            <button type="button" class="btn-ghost" id="btn-restore-limits">Restaurer les limites preset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolbar-section container">
+      <div class="toolbar">
+        <p class="toolbar-label">Type d’accès</p>
+        <div class="filters" id="category-tabs" role="tablist" aria-label="Catégorie d’usage"></div>
+        <p class="toolbar-label">Plan / tier</p>
+        <div class="filters" id="plan-tabs" role="tablist" aria-label="Plan Grok"></div>
+        <p class="plan-note" id="plan-note"></p>
+      </div>
+    </section>
+
+    <section class="meters-section container">
+      <div class="meters-grid" id="meters"></div>
+    </section>
+
+    <section class="legend-section container">
+      <div class="legend">
+        <span class="leg ok"><i></i> &gt; 50 % restant</span>
+        <span class="leg warn"><i></i> 20–50 % restant</span>
+        <span class="leg crit"><i></i> &lt; 20 % restant</span>
+      </div>
+      <p class="legend-hint">
+        Astuce : quand Grok affiche un quota (ex. 12/100), mets <strong>utilisé = 12</strong> et <strong>limite = 100</strong>.
+        Boutons <strong>+1 / −1</strong> pour compter à la volée.
+      </p>
+    </section>
+
+    <section class="tips-section container" id="astuces">
+      <h2 class="section-title">Comment lire ton usage</h2>
+      <div class="tips-grid" id="tips-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        Design by <strong>Grok</strong> · xAI ·
+        <a href="index.html">Shell</a> ·
+        <a href="tokens.html">Prix tokens</a> ·
+        Suivi 100 % local
+      </p>
+      <p class="footer-note">
+        Les plafonds Grok évoluent. Cette page n’est pas un compteur officiel xAI — c’est ton tableau de bord personnel.
+      </p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/usage-data.js"></script>
+  <script src="js/usage-app.js"></script>
+</body>
+</html>

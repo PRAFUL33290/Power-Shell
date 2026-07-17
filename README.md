@@ -29,6 +29,7 @@ Aucun serveur ni dépendance (HTML / CSS / JS pur).
 |------|---------|---------|
 | Shell Linux → Windows | `index.html` | Commandes Bash ↔ CMD |
 | Prix & tokens API | `tokens.html` | Tarifs Grok / OpenAI / Claude / Vibe + estimateur |
+| Usage Grok | `usage.html` | Quotas, consommé, % restant (local) |
 
 ## Structure
 
