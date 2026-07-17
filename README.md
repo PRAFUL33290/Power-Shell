@@ -23,13 +23,25 @@ xdg-open index.html
 
 Aucun serveur ni dépendance (HTML / CSS / JS pur).
 
+## Pages
+
+| Page | Fichier | Contenu |
+|------|---------|---------|
+| Shell Linux → Windows | `index.html` | Commandes Bash ↔ CMD |
+| Prix & tokens API | `tokens.html` | Tarifs Grok / OpenAI / Claude / Vibe + estimateur |
+
 ## Structure
 
 ```
-├── index.html
+├── index.html          # guide shell
+├── tokens.html         # prix API / tokens
+├── Token               # source des tarifs (17/07/2026)
 ├── css/style.css
-├── js/data.js      # commandes Linux ↔ Windows
-└── js/app.js       # recherche, filtres, copie
+├── css/tokens.css
+├── js/data.js          # commandes Linux ↔ Windows
+├── js/app.js
+├── js/tokens-data.js   # prix modèles
+└── js/tokens-app.js    # tableau + estimateur
 ```
 
 ## Les 2 terminaux

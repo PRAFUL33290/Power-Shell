@@ -147,6 +147,14 @@ body {
   color: var(--text);
 }
 
+.nav a.nav-highlight {
+  color: var(--accent-2);
+}
+
+.nav a.nav-highlight:hover {
+  color: var(--text);
+}
+
 .badge {
   font-size: 0.72rem;
   font-weight: 500;

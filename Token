@@ -1,0 +1,42 @@
+Voici le tableau corrigé (prix API par 1M tokens, en USD, au 17/07/2026).  
+
+## Tableau prix/token à jour
+
+| Fournisseur | Modèle (API)        | Prix entrée / 1M tokens | Prix sortie / 1M tokens | Commentaire principal |
+|------------|----------------------|--------------------------|-------------------------|-----------------------|
+| **xAI (Grok)** | Grok 4.5          | 2.00 USD[1][2][3] | 6.00 USD[1][2][3]  | Modèle phare récent, 500k contexte, très axé code/agents.[4][5][2] |
+| **xAI (Grok)** | Grok 4.3          | 1.25 USD[6][7]         | 2.50 USD[6][7]          | Modèle général “value”, contexte 1M, bon rapport perf/prix.[6][8][7] |
+| **OpenAI (ChatGPT)** | GPT‑4o‑mini | 0.15 USD[9][10]        | 0.60 USD[9][10]         | Modèle low‑cost très utilisé pour chat et tâches générales.[9][10] |
+| **OpenAI (ChatGPT)** | GPT‑4.1    | 2.00 USD[9][10]        | 8.00 USD[9][10]         | Modèle “frontier” généraliste, contexte jusqu’à 1M tokens.[9][10] |
+| **Anthropic (Claude)** | Claude Sonnet 4.6 | 3.00 USD[11][12] | 15.00 USD[11][12]        | Modèle Claude standard/flagship pour usage pro.[11][12] |
+| **Anthropic (Claude)** | Claude Haiku 4.5  | 1.00 USD[11][12] | 5.00 USD[11][12]         | Modèle plus léger/éco pour gros volumes.[11][12] |
+| **Vibe (Vibe AI / VibeBrowser)** | N/A (bundle) | N/A | N/A | Plans Pro à 25 USD/mois et Max à 99 USD/mois, pas de tarif token public (usage de plusieurs modèles inclus).[13][14] |
+
+Si tu veux, je peux te faire un second tableau avec **coût estimé par requête type** (par ex. 5k tokens entrée + 2k sortie) pour chaque modèle, pour t’aider à choisir ta stack pour tes projets web/SaaS.
+
+Sources
+[1] Grok 4.5 vs Claude Opus 4.8 vs ChatGPT-4o https://www.bleap.finance/fr-fr/blog/grok-4-5-explained
+[2] Grok 4.5: 500K Context, $2/$6 Pricing & API Access (2026) - HokAI https://hokai.io/hub/models/grok-4.5
+[3] Introducing Grok 4.5 https://x.ai/news/grok-4-5
+[4] Grok 4.5 Developer Guide: Benchmarks, API & Features https://lushbinary.com/blog/grok-4-5-developer-guide-benchmarks-api-features/
+[5] Grok 4.5 Review: $2/$6 API Pricing, 500K Context, Benchmarks - TokenMix Blog https://tokenmix.ai/blog/grok-4-5-review-pricing-benchmark-2026
+[6] Grok API Pricing (July 2026): Grok 4.5 & 4.3 Rates https://benchlm.ai/xai/api-pricing
+[7] xAI Grok API Pricing Guide 2026 https://www.getapipulse.com/xai.html
+[8] xAI — LLM API Pricing & Models https://modelpricewatch.com/providers/xai/
+[9] OpenAI API Pricing Guide 2026: GPT-5, o3, DALL-E & More https://www.burnwise.io/blog/openai-pricing-guide-2026
+[10] OpenAI API Pricing 2026: From $0.10/1M Tokens [18 Models] https://www.burnwise.io/ai-pricing/openai
+[11] Claude API Pricing 2026: Opus 4.8, Sonnet 4.6, Haiku 4.5 ... https://www.metacto.com/blogs/anthropic-api-pricing-a-full-breakdown-of-costs-and-integration
+[12] Anthropic Claude API Pricing 2026: Fable, Opus, Sonnet https://www.aipricing.guru/anthropic-pricing/
+[13] Vibe AI Pricing & Plans: Starter to Enterprise https://vibe.us/vibe-ai/pricing/
+[14] Pricing — VibeBrowser Co-Pilot https://www.vibebrowser.app/pricing
+[15] OpenAI API Pricing Guide 2026: Models, Costs & Tips https://www.aipricing.guru/blog/openai-api-pricing-guide-2026/
+[16] OpenAI API Pricing - All Models (2026) - LLM Leaderboard https://lmmarketcap.com/openai-api-pricing
+[17] OpenAI API Pricing 2026: GPT-4.1 at $2, GPT-5 at $1.25/1M https://pecollective.com/tools/openai-api-pricing/
+[18] Pricing - OpenAI API https://platform.openai.com/docs/pricing?product=ER
+[19] Pricing https://openai.com/bs-BA/api/pricing/
+[20] Claude API Pricing 2026: Fable, Opus, Sonnet, and Haiku Compared https://lucaberton.com/blog/claude-api-pricing-2026-fable-opus-sonnet-haiku/
+[21] OpenAI API - GPT-5.6 Pricing (July 2026) - AI Pricing Guru https://www.aipricing.guru/openai-pricing/
+[22] OpenAI API Pricing (Updated 2026) – All Models & Token Costs https://pricepertoken.com/pricing-page/provider/openai
+[23] Anthropic API Pricing 2026: Official Per-Model Rates https://pecollective.com/tools/anthropic-api-pricing/
+[24] Claude API Pricing Breakdown (2026): Tokens, Limits & Costs https://nicolalazzari.ai/articles/claude-api-pricing-breakdown-2026
+[25] Tools https://developers.openai.com/api/docs/pricing
