@@ -11,27 +11,61 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/tokens.css" />
 </head>
-<body>
+<body class="has-sidebar">
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow bg-glow-tokens" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="tokens.html" class="logo">
-        <span class="logo-mark">◈</span>
-        <span class="logo-text">Tokens<span class="accent">.prix</span></span>
+  <!-- Navigation latérale gauche (visible sans JS) -->
+  <aside class="site-sidebar" id="site-sidebar" aria-label="Navigation">
+    <div class="sidebar-top">
+      <a href="index.html" class="logo" aria-label="Power.guide — accueil">
+        <span class="logo-mark">Ψ</span>
+        <span class="logo-text">Power<span class="accent">.guide</span></span>
       </a>
-      <nav class="nav">
-        <a href="index.html">Shell</a>
-        <a href="usage.html">Usage Grok</a>
-        <a href="grok-cli.html">Grok CLI</a>
-        <a href="#tableau">Tableau</a>
-        <a href="#estimateur">Estimateur</a>
-        <a href="#sources">Sources</a>
-      </nav>
-      <span class="badge">Design by Grok · xAI</span>
     </div>
+    <nav class="sidebar-nav" id="site-nav">
+      <div class="nav-cat" data-cat="terminal">
+        <div class="nav-cat-label">Terminal</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="shell" href="index.html">Linux → Windows</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="usage-group">
+        <div class="nav-cat-label">Usage &amp; limites</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="usage" href="usage.html">Usage Grok</a>
+          <a class="nav-link" data-nav="rates" href="rates.html">Rate limits</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="models">
+        <div class="nav-cat-label">Prix &amp; modèles</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="tokens" href="tokens.html">Prix tokens</a>
+          <a class="nav-link" data-nav="compare" href="compare.html">Comparer IA</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="products">
+        <div class="nav-cat-label">Produits Grok</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="cli" href="grok-cli.html">Grok CLI</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="badge sidebar-badge">Design by Grok · xAI</span>
+    </div>
+  </aside>
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+  <header class="mobile-topbar" id="mobile-topbar">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-sidebar" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo logo-mobile">
+      <span class="logo-mark">Ψ</span>
+      <span class="logo-text">Power<span class="accent">.guide</span></span>
+    </a>
   </header>
+
 
   <main>
     <section class="hero">
@@ -201,19 +235,9 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>
-        Design by <strong>Grok</strong> · xAI ·
-        <a href="index.html">Shell</a> ·
-        <a href="usage.html">Usage Grok</a> ·
-        <a href="grok-cli.html">Grok CLI</a> ·
-        Prix API au 17/07/2026
-      </p>
-      <p class="footer-note">Données indicatives d’après le fichier Token du projet. Vérifie les tarifs officiels avant un budget de prod.</p>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
+  <script src="js/layout.js"></script>
   <script src="js/tokens-data.js"></script>
   <script src="js/tokens-app.js"></script>
 </body>

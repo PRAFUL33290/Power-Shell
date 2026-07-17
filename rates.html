@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage & vitesse — Claude vs Codex vs Grok | Qui permet de refaire des requêtes ?</title>
+  <meta name="description" content="Compare les rate limits et la vitesse de retry entre Claude, OpenAI Codex et Grok. Qui récupère le plus vite pour enchaîner les requêtes ?" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/rates.css" />
+</head>
+<body class="has-sidebar">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-rates" aria-hidden="true"></div>
+
+  <!-- Navigation latérale gauche (visible sans JS) -->
+  <aside class="site-sidebar" id="site-sidebar" aria-label="Navigation">
+    <div class="sidebar-top">
+      <a href="index.html" class="logo" aria-label="Power.guide — accueil">
+        <span class="logo-mark">Ψ</span>
+        <span class="logo-text">Power<span class="accent">.guide</span></span>
+      </a>
+    </div>
+    <nav class="sidebar-nav" id="site-nav">
+      <div class="nav-cat" data-cat="terminal">
+        <div class="nav-cat-label">Terminal</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="shell" href="index.html">Linux → Windows</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="usage-group">
+        <div class="nav-cat-label">Usage &amp; limites</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="usage" href="usage.html">Usage Grok</a>
+          <a class="nav-link" data-nav="rates" href="rates.html">Rate limits</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="models">
+        <div class="nav-cat-label">Prix &amp; modèles</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="tokens" href="tokens.html">Prix tokens</a>
+          <a class="nav-link" data-nav="compare" href="compare.html">Comparer IA</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="products">
+        <div class="nav-cat-label">Produits Grok</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="cli" href="grok-cli.html">Grok CLI</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="badge sidebar-badge">Design by Grok · xAI</span>
+    </div>
+  </aside>
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+  <header class="mobile-topbar" id="mobile-topbar">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-sidebar" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo logo-mobile">
+      <span class="logo-mark">Ψ</span>
+      <span class="logo-text">Power<span class="accent">.guide</span></span>
+    </a>
+  </header>
+
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Rate limits · reset · débit · <span id="rates-date">—</span></p>
+        <h1>
+          Qui te laisse
+          <span class="grad-win">refaire des requêtes</span>
+          le plus vite ?
+        </h1>
+        <p class="hero-sub">
+          Comparaison des <strong>données d’usage</strong> entre
+          <strong>Claude</strong>, <strong>Codex</strong> (OpenAI) et <strong>Grok</strong> :
+          plafonds, fenêtres 5&nbsp;h, RPM/TPM, et temps avant de pouvoir relancer.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="provider-cards" id="provider-cards"></div>
+    </section>
+
+    <section class="container winner-section">
+      <div id="winner-banner"></div>
+    </section>
+
+    <section class="container score-section" id="scores">
+      <h2 class="section-title">Score “refaire des requêtes”</h2>
+      <p class="section-lead">
+        Notation relative (10 = excellent) pour le débit, la latence, la récupération après limite,
+        le volume et les boucles d’agents — pas un bench labo.
+      </p>
+      <div class="table-wrap">
+        <table class="cmd-table score-table">
+          <thead id="rates-score-head"></thead>
+          <tbody id="rates-score-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="container limits-section" id="limites">
+      <h2 class="section-title">Plafonds & fenêtres d’usage</h2>
+      <p class="section-lead">Ordres de grandeur publics / docs 2026 — ton compte peut différer.</p>
+      <div class="table-filters filters" id="table-filters">
+        <button type="button" class="filter-btn active" data-filter="all">Tout</button>
+        <button type="button" class="filter-btn" data-filter="claude">Claude</button>
+        <button type="button" class="filter-btn" data-filter="codex">Codex</button>
+        <button type="button" class="filter-btn" data-filter="grok">Grok</button>
+      </div>
+      <div id="limit-tables"></div>
+    </section>
+
+    <section class="container retry-section" id="retry">
+      <h2 class="section-title">Scénarios : quand puis-je relancer ?</h2>
+      <p class="section-lead">Le critère qui compte quand tu débuggues en boucle.</p>
+      <div id="retry-scenarios"></div>
+    </section>
+
+    <section class="container" id="verdict">
+      <h2 class="section-title">Verdicts rapides</h2>
+      <div class="verdicts-mini" id="rates-verdicts"></div>
+    </section>
+
+    <section class="container tips-section">
+      <h2 class="section-title">Astuces pour ne pas se faire bloquer</h2>
+      <div class="tips-grid" id="rates-tips"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/rates-data.js"></script>
+  <script src="js/rates-app.js"></script>
+</body>
+</html>

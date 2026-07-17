@@ -269,15 +269,6 @@
   color: var(--accent-2);
 }
 
-.footer-inner a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.footer-inner a:hover {
-  text-decoration: underline;
-}
-
 th.col-input {
   color: var(--linux);
 }

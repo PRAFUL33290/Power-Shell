@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grok 4.5 vs GPT-5.6 vs Claude Fable 5 — Comparaison IA 2026</title>
+  <meta name="description" content="Comparaison des IA frontier mi-2026 : Grok 4.5 (xAI), GPT-5.6 Sol (ChatGPT) et Claude Fable 5 (Anthropic). Prix, forces, scores et verdicts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/compare.css" />
+</head>
+<body class="has-sidebar">
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-compare" aria-hidden="true"></div>
+
+  <!-- Navigation latérale gauche (visible sans JS) -->
+  <aside class="site-sidebar" id="site-sidebar" aria-label="Navigation">
+    <div class="sidebar-top">
+      <a href="index.html" class="logo" aria-label="Power.guide — accueil">
+        <span class="logo-mark">Ψ</span>
+        <span class="logo-text">Power<span class="accent">.guide</span></span>
+      </a>
+    </div>
+    <nav class="sidebar-nav" id="site-nav">
+      <div class="nav-cat" data-cat="terminal">
+        <div class="nav-cat-label">Terminal</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="shell" href="index.html">Linux → Windows</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="usage-group">
+        <div class="nav-cat-label">Usage &amp; limites</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="usage" href="usage.html">Usage Grok</a>
+          <a class="nav-link" data-nav="rates" href="rates.html">Rate limits</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="models">
+        <div class="nav-cat-label">Prix &amp; modèles</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="tokens" href="tokens.html">Prix tokens</a>
+          <a class="nav-link" data-nav="compare" href="compare.html">Comparer IA</a>
+        </div>
+      </div>
+      <div class="nav-cat" data-cat="products">
+        <div class="nav-cat-label">Produits Grok</div>
+        <div class="nav-cat-items">
+          <a class="nav-link" data-nav="cli" href="grok-cli.html">Grok CLI</a>
+        </div>
+      </div>
+    </nav>
+    <div class="sidebar-bottom">
+      <span class="badge sidebar-badge">Design by Grok · xAI</span>
+    </div>
+  </aside>
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+  <header class="mobile-topbar" id="mobile-topbar">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-sidebar" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index.html" class="logo logo-mobile">
+      <span class="logo-mark">Ψ</span>
+      <span class="logo-text">Power<span class="accent">.guide</span></span>
+    </a>
+  </header>
+
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-eyebrow">Frontier AI · mise à jour <span id="compare-date">—</span></p>
+        <h1>
+          <span class="grad-grok">Grok 4.5</span>
+          <span class="hero-arrow">vs</span>
+          <span class="grad-gpt">GPT-5.6</span>
+          <span class="hero-arrow">vs</span>
+          <span class="grad-fable">Claude Fable</span>
+        </h1>
+        <p class="hero-sub">
+          Qui gagne <strong>en ce moment</strong> ? Focus sur le flagship
+          <strong>Grok 4.5</strong>, les nouveautés <strong>ChatGPT (GPT-5.6 Sol)</strong>
+          et <strong>Claude Fable 5</strong> (classe Mythos publique).
+        </p>
+      </div>
+    </section>
+
+    <section class="container" id="models">
+      <div class="model-cards" id="model-cards"></div>
+    </section>
+
+    <section class="container news-section">
+      <h2 class="section-title">Nouveautés du moment</h2>
+      <div class="news-grid" id="news-grid"></div>
+    </section>
+
+    <section class="container" id="scores">
+      <h2 class="section-title">Scores relatifs (10 = excellent)</h2>
+      <p class="section-lead">
+        Notation indicative pour le dev / agent / prod — pas un leaderboard labo officiel.
+        Les barres vertes marquent le meilleur de la ligne.
+      </p>
+      <div class="table-wrap">
+        <table class="cmd-table score-table">
+          <thead id="score-head"></thead>
+          <tbody id="score-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="container price-section">
+      <h2 class="section-title">Prix API (USD / 1M tokens)</h2>
+      <div class="price-bars" id="price-bars"></div>
+    </section>
+
+    <section class="container estimator-section">
+      <h2 class="section-title">Coût d’une requête type</h2>
+      <p class="section-lead">
+        Scénario : <strong id="cmp-scenario-label">5 000 + 2 000</strong> tokens.
+      </p>
+      <div class="estimator-panel">
+        <div class="estimator-controls">
+          <label class="field">
+            <span>Tokens entrée</span>
+            <input type="number" id="cmp-in" min="0" step="100" value="5000" />
+          </label>
+          <label class="field">
+            <span>Tokens sortie</span>
+            <input type="number" id="cmp-out" min="0" step="100" value="2000" />
+          </label>
+          <div class="scenario-btns" id="cmp-scenarios">
+            <button type="button" class="filter-btn active" data-in="5000" data-out="2000">Chat</button>
+            <button type="button" class="filter-btn" data-in="20000" data-out="4000">Review</button>
+            <button type="button" class="filter-btn" data-in="50000" data-out="8000">Agent</button>
+            <button type="button" class="filter-btn" data-in="100000" data-out="15000">Gros job</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="cmd-table estimate-table">
+            <thead>
+              <tr>
+                <th>Modèle</th>
+                <th>Coût estimé</th>
+                <th>Comparaison</th>
+              </tr>
+            </thead>
+            <tbody id="cmp-estimate-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="pros">
+      <h2 class="section-title">Forces & limites</h2>
+      <div class="pros-cons" id="pros-cons"></div>
+    </section>
+
+    <section class="container" id="verdict">
+      <h2 class="section-title">Qui gagne quoi ?</h2>
+      <div class="verdicts" id="verdicts"></div>
+    </section>
+
+    <section class="container scenarios-section">
+      <h2 class="section-title">Choisis ton scénario</h2>
+      <div class="scenarios" id="scenarios"></div>
+      <div class="scenario-result" id="scenario-result" hidden></div>
+    </section>
+
+    <section class="container tips-section">
+      <h2 class="section-title">En résumé (juillet 2026)</h2>
+      <div class="tips-grid">
+        <article class="tip-card">
+          <span class="tip-num">Grok</span>
+          <h3>Le sniper coût + code</h3>
+          <p>Grok 4.5 frappe fort pour les agents de dev : vite, moins cher, CLI & Cursor. Parfait en volume.</p>
+        </article>
+        <article class="tip-card">
+          <span class="tip-num">GPT</span>
+          <h3>La plateforme complète</h3>
+          <p>ChatGPT + GPT-5.6 Sol : computer use, multimédia, écosystème pro. Le choix “produit”.</p>
+        </article>
+        <article class="tip-card">
+          <span class="tip-num">Fable</span>
+          <h3>Le pic de qualité</h3>
+          <p>Claude Fable 5 (Mythos public) : quand l’erreur est chère. Cher, mais souvent le plus précis.</p>
+        </article>
+        <article class="tip-card">
+          <span class="tip-num">Stack</span>
+          <h3>Le vrai winner</h3>
+          <p>Beaucoup d’équipes mixent : Grok pour le grind, Fable pour le hard, GPT pour l’UX métier.</p>
+        </article>
+        <article class="tip-card">
+          <span class="tip-num">⚠</span>
+          <h3>Les benches bougent</h3>
+          <p>Les scores varient selon la date et le test. Croise toujours avec tes cas réels.</p>
+        </article>
+        <article class="tip-card">
+          <span class="tip-num">$</span>
+          <h3>Regarde la sortie</h3>
+          <p>Fable à $50/M output pique sur les agents bavards. Grok à $6/M change la facture mensuelle.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/compare-data.js"></script>
+  <script src="js/compare-app.js"></script>
+</body>
+</html>
