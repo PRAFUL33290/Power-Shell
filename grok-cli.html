@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grok CLI — L’assistant de code dans ton terminal | Design by Grok</title>
+  <meta name="description" content="Pourquoi Grok CLI (Grok Build) : TUI dans le terminal, édition de code, mode headless, MCP, skills, agents, sandbox. Install en une commande." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/grok-cli.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-cli" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="grok-cli.html" class="logo">
+        <span class="logo-mark">⌘</span>
+        <span class="logo-text">Grok<span class="accent">.cli</span></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Shell</a>
+        <a href="tokens.html">Prix</a>
+        <a href="usage.html">Usage</a>
+        <a href="#merits">Mérites</a>
+        <a href="#install">Install</a>
+      </nav>
+      <span class="badge">Design by Grok · xAI</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero hero-cli">
+      <div class="container">
+        <p class="hero-eyebrow">Grok Build · Terminal User Interface · SpaceXAI / xAI</p>
+        <h1>
+          Le coding agent qui
+          <span class="grad-win">vit dans ton terminal</span>
+        </h1>
+        <p class="hero-sub">
+          <strong>Grok CLI</strong> n’est pas un chat web de plus.
+          C’est un assistant qui lit ton repo, lance des commandes, édite des fichiers,
+          enchaîne des agents — sans quitter le shell.
+        </p>
+        <div class="hero-cta">
+          <a class="btn-cta primary" href="#install">Installer Grok CLI</a>
+          <a class="btn-cta ghost" href="#merits">Voir les mérites</a>
+        </div>
+        <div class="terminal-demo" aria-hidden="true">
+          <div class="term-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <span class="term-title">grok — ~/mon-projet</span>
+          </div>
+          <pre class="term-body"><span class="t-prompt">$</span> grok
+<span class="t-dim">Grok Build · session prête · repo indexé</span>
+
+<span class="t-user">› Refactor le module auth et ajoute des tests</span>
+
+<span class="t-tool">⚙  read_file</span>  <span class="t-path">src/auth/session.ts</span>
+<span class="t-tool">⚙  search_replace</span>  <span class="t-path">src/auth/session.ts</span>
+<span class="t-tool">⚙  run_terminal</span>  <span class="t-path">npm test -- auth</span>
+
+<span class="t-ok">✓ 12 tests passed · 3 fichiers modifiés</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- PITCH STRIP -->
+    <section class="pitch-strip container">
+      <div class="pitch-item">
+        <span class="pitch-num">01</span>
+        <p>Comprend le <strong>codebase</strong>, pas seulement un snippet collé</p>
+      </div>
+      <div class="pitch-item">
+        <span class="pitch-num">02</span>
+        <p>Exécute vraiment : <strong>shell, git, tests, edits</strong></p>
+      </div>
+      <div class="pitch-item">
+        <span class="pitch-num">03</span>
+        <p>Scriptable : <strong>CI/CD, headless, agents</strong></p>
+      </div>
+    </section>
+
+    <!-- MERITS -->
+    <section class="features-section container" id="merits">
+      <h2 class="section-title">Pourquoi les devs adoptent Grok CLI</h2>
+      <p class="section-lead">
+        Pas de bascule d’onglets. Pas de copier-coller permanent.
+        Ton workflow reste dans le terminal — là où le code se construit déjà.
+      </p>
+
+      <div class="features-grid">
+        <article class="feat-card feat-big">
+          <span class="feat-icon">🖥️</span>
+          <h3>TUI full-screen, pensée pour le code</h3>
+          <p>
+            Scrollback live des outils, prompt en bas, pièces jointes avec
+            <code>@fichier</code>, sessions sauvegardées. Tu vois chaque
+            <em>read</em>, <em>edit</em> et <em>commande</em> en temps réel.
+          </p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">🧠</span>
+          <h3>Agent, pas chatbot</h3>
+          <p>Explore le repo, planifie, édite, relance les tests. Multi-tours jusqu’à ce que le job soit fait.</p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">⚡</span>
+          <h3>Mode headless</h3>
+          <p><code>grok -p "…"</code> pour scripts, CI, cron. Sortie plain, JSON ou streaming.</p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">🔌</span>
+          <h3>MCP servers</h3>
+          <p>Branche GitHub, calendrier, bases de données… Les outils externes deviennent des armes de l’agent.</p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">📦</span>
+          <h3>Skills & plugins</h3>
+          <p>Encode tes procédures en <code>SKILL.md</code>. Plus besoin de tout réexpliquer à chaque session.</p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">🛡️</span>
+          <h3>Permissions & sandbox</h3>
+          <p>Approuve commande par commande, ou YOLO. Sandbox FS/réseau pour limiter la surface d’attaque.</p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">🧩</span>
+          <h3>Subagents & plan mode</h3>
+          <p>Délègue en parallèle, isole en worktree, planifie avant d’écrire du code en masse.</p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">🔗</span>
+          <h3>IDE via ACP</h3>
+          <p>Mode agent stdio / WebSocket pour brancher Zed, Neovim, Emacs ou ton outil maison.</p>
+        </article>
+
+        <article class="feat-card">
+          <span class="feat-icon">🌍</span>
+          <h3>macOS · Linux · Windows</h3>
+          <p>Install bash ou PowerShell. WSL, Git Bash, terminal natif — le CLI suit ton OS.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- VS -->
+    <section class="vs-section container">
+      <h2 class="section-title">Grok CLI vs le reste</h2>
+      <div class="table-wrap">
+        <table class="cmd-table vs-table">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th class="col-win">Grok CLI</th>
+              <th>Chat web classique</th>
+              <th>Copier-coller IDE seul</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lit tout le repo</td>
+              <td class="yes">Oui — grep, fichiers, arbo</td>
+              <td class="no">Non (sauf upload manuel)</td>
+              <td class="mid">Contexte limité à l’onglet</td>
+            </tr>
+            <tr>
+              <td>Exécute shell / tests</td>
+              <td class="yes">Oui, en live</td>
+              <td class="no">Non</td>
+              <td class="mid">Parfois, selon l’outil</td>
+            </tr>
+            <tr>
+              <td>Édite plusieurs fichiers</td>
+              <td class="yes">Oui, avec diff visible</td>
+              <td class="no">Tu colles à la main</td>
+              <td class="mid">Variable</td>
+            </tr>
+            <tr>
+              <td>Automatisable (CI)</td>
+              <td class="yes">Headless + JSON</td>
+              <td class="no">Non</td>
+              <td class="no">Rarement</td>
+            </tr>
+            <tr>
+              <td>Reste dans le terminal</td>
+              <td class="yes">100 %</td>
+              <td class="no">Navigateur</td>
+              <td class="mid">Fenêtre IDE</td>
+            </tr>
+            <tr>
+              <td>Extensible (MCP / skills)</td>
+              <td class="yes">Natif</td>
+              <td class="mid">Plugins web limités</td>
+              <td class="mid">Selon l’écosystème</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="usecases-section container">
+      <h2 class="section-title">Cas d’usage qui font gagner des heures</h2>
+      <div class="use-grid">
+        <article class="use-card">
+          <h3>Onboarding d’un repo</h3>
+          <p>« Explique l’archi, les points d’entrée et comment lancer les tests. » Grok cartographie le projet pour toi.</p>
+          <code>grok -p "Mappe ce repo et résume l’archi"</code>
+        </article>
+        <article class="use-card">
+          <h3>Bug → fix → tests</h3>
+          <p>Repro, patch, relance de la suite. Une boucle agentique au lieu de 40 allers-retours.</p>
+          <code>› Le login casse en prod, trouve et corrige</code>
+        </article>
+        <article class="use-card">
+          <h3>PR & review</h3>
+          <p>Review de diff, message de commit, push, ouverture de PR via MCP GitHub.</p>
+          <code>› Review les changements et ouvre une PR</code>
+        </article>
+        <article class="use-card">
+          <h3>Automatisation CI</h3>
+          <p>Mode headless dans un pipeline : audit, migration, génération de changelog.</p>
+          <code>grok -p "…" --output-format json --yolo</code>
+        </article>
+      </div>
+    </section>
+
+    <!-- QUOTES / MERITS LIST -->
+    <section class="merits-list container">
+      <h2 class="section-title">Les mérites, en clair</h2>
+      <ul class="merit-ul">
+        <li>
+          <strong>Vélocité</strong>
+          <span>Tu restes en flow : moins d’alt-tab, plus de shipping.</span>
+        </li>
+        <li>
+          <strong>Contrôle</strong>
+          <span>Permissions granulaires, sandbox, allow/deny rules — pas une boîte noire incontrôlable.</span>
+        </li>
+        <li>
+          <strong>Mémoire de projet</strong>
+          <span>Sessions, rules (<code>AGENTS.md</code>), skills d’équipe : l’agent apprend ton contexte.</span>
+        </li>
+        <li>
+          <strong>Puissance modèle</strong>
+          <span>Propulsé par les modèles Grok (xAI) — fort sur code, agents et raisonnement long.</span>
+        </li>
+        <li>
+          <strong>Écosystème ouvert</strong>
+          <span>MCP, ACP, hooks, plugins, thèmes — tu étends sans attendre une feature maison.</span>
+        </li>
+        <li>
+          <strong>Cross-platform</strong>
+          <span>Linux, macOS, Windows (PowerShell / Git Bash / WSL). Une seule commande d’install.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="install-section container" id="install">
+      <h2 class="section-title">Install en une ligne</h2>
+      <div class="install-grid">
+        <article class="install-card">
+          <h3>macOS / Linux / Git Bash</h3>
+          <div class="code-block">
+            <code id="cmd-bash">curl -fsSL https://x.ai/cli/install.sh | bash</code>
+            <button type="button" class="copy-btn" data-copy="cmd-bash">Copier</button>
+          </div>
+        </article>
+        <article class="install-card">
+          <h3>Windows PowerShell</h3>
+          <div class="code-block">
+            <code id="cmd-ps">irm https://x.ai/cli/install.ps1 | iex</code>
+            <button type="button" class="copy-btn" data-copy="cmd-ps">Copier</button>
+          </div>
+        </article>
+      </div>
+      <div class="install-next">
+        <p>Ensuite :</p>
+        <ol>
+          <li><code>grok --version</code> — vérifier l’install</li>
+          <li><code>grok</code> — lancer le TUI (auth navigateur la 1<sup>re</sup> fois)</li>
+          <li>Ou <code>export XAI_API_KEY=…</code> pour la CI / headless</li>
+          <li><code>grok update</code> — rester à jour</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta container">
+      <div class="final-panel">
+        <h2>Arrête de copier-coller. Commence à déléguer.</h2>
+        <p>Grok CLI transforme ton terminal en poste de pilotage agentique — code, outils, et livrables, au même endroit.</p>
+        <a class="btn-cta primary" href="#install">Installer maintenant</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>
+        Design by <strong>Grok</strong> · xAI ·
+        <a href="index.html">Shell</a> ·
+        <a href="tokens.html">Prix tokens</a> ·
+        <a href="usage.html">Usage Grok</a>
+      </p>
+      <p class="footer-note">
+        Grok Build / Grok CLI — assistant de code terminal. Install :
+        <a href="https://x.ai/cli/install.sh" rel="noopener">x.ai/cli</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      const toast = document.getElementById("toast");
+      let t;
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const el = document.getElementById(btn.dataset.copy);
+          const text = el ? el.textContent.trim() : "";
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            ta.remove();
+          }
+          toast.textContent = "Commande copiée";
+          toast.classList.add("show");
+          clearTimeout(t);
+          t = setTimeout(() => toast.classList.remove("show"), 1800);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -30,6 +30,7 @@ Aucun serveur ni dépendance (HTML / CSS / JS pur).
 | Shell Linux → Windows | `index.html` | Commandes Bash ↔ CMD |
 | Prix & tokens API | `tokens.html` | Tarifs Grok / OpenAI / Claude / Vibe + estimateur |
 | Usage Grok | `usage.html` | Quotas, consommé, % restant (local) |
+| Grok CLI | `grok-cli.html` | Vitrine / mérites du CLI Grok Build |
 
 ## Structure
 
@@ -37,10 +38,12 @@ Aucun serveur ni dépendance (HTML / CSS / JS pur).
 ├── index.html          # guide shell
 ├── tokens.html         # prix API / tokens
 ├── usage.html          # suivi usage Grok (% restant)
+├── grok-cli.html       # vitrine Grok CLI
 ├── Token               # source des tarifs (17/07/2026)
 ├── css/style.css
 ├── css/tokens.css
 ├── css/usage.css
+├── css/grok-cli.css
 ├── js/data.js          # commandes Linux ↔ Windows
 ├── js/app.js
 ├── js/tokens-data.js   # prix modèles
